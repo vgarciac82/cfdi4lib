@@ -1,8 +1,8 @@
-package mx.grupocorasa.sat.factory.cfd;
+package com.angelsoft.sat.factory.cfd;
 
-import mx.grupocorasa.sat.cfd._40.Comprobante;
-import mx.grupocorasa.sat.cfd._40.ObjectFactory;
-import mx.grupocorasa.sat.common.catalogos.*;
+import com.angelsoft.sat.cfd._40.Comprobante;
+import com.angelsoft.sat.cfd._40.ObjectFactory;
+import com.angelsoft.sat.common.catalogos.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

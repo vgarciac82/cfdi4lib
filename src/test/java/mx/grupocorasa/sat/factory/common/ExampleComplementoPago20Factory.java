@@ -1,8 +1,8 @@
-package mx.grupocorasa.sat.factory.common;
+package com.angelsoft.sat.factory.common;
 
-import mx.grupocorasa.sat.common.Pagos20.ObjectFactory;
-import mx.grupocorasa.sat.common.Pagos20.Pagos;
-import mx.grupocorasa.sat.common.catalogos.*;
+import com.angelsoft.sat.common.Pagos20.ObjectFactory;
+import com.angelsoft.sat.common.Pagos20.Pagos;
+import com.angelsoft.sat.common.catalogos.*;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

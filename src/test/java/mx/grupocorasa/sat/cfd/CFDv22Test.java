@@ -1,12 +1,12 @@
-package mx.grupocorasa.sat.cfd;
+package com.angelsoft.sat.cfd;
 
-import mx.grupocorasa.sat.cfd._22.Comprobante;
-import mx.grupocorasa.sat.common.ValidationErrorHandler;
-import mx.grupocorasa.sat.common.implocal10.ImpuestosLocales;
-import mx.grupocorasa.sat.factory.cfd.ExampleCFDv22Factory;
-import mx.grupocorasa.sat.factory.common.ExampleImpLocalFactory;
-import mx.grupocorasa.sat.security.KeyLoaderEnumeration;
-import mx.grupocorasa.sat.security.factory.KeyLoaderFactory;
+import com.angelsoft.sat.cfd._22.Comprobante;
+import com.angelsoft.sat.common.ValidationErrorHandler;
+import com.angelsoft.sat.common.implocal10.ImpuestosLocales;
+import com.angelsoft.sat.factory.cfd.ExampleCFDv22Factory;
+import com.angelsoft.sat.factory.common.ExampleImpLocalFactory;
+import com.angelsoft.sat.security.KeyLoaderEnumeration;
+import com.angelsoft.sat.security.factory.KeyLoaderFactory;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;

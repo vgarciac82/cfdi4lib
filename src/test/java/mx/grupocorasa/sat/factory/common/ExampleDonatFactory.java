@@ -1,7 +1,7 @@
-package mx.grupocorasa.sat.factory.common;
+package com.angelsoft.sat.factory.common;
 
-import mx.grupocorasa.sat.common.donat10.Donatarias;
-import mx.grupocorasa.sat.common.donat10.ObjectFactory;
+import com.angelsoft.sat.common.donat10.Donatarias;
+import com.angelsoft.sat.common.donat10.ObjectFactory;
 
 import java.time.LocalDate;
 

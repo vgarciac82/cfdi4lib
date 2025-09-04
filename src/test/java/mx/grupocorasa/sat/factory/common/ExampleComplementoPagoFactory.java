@@ -1,9 +1,9 @@
-package mx.grupocorasa.sat.factory.common;
+package com.angelsoft.sat.factory.common;
 
-import mx.grupocorasa.sat.common.Pagos10.ObjectFactory;
-import mx.grupocorasa.sat.common.Pagos10.Pagos;
-import mx.grupocorasa.sat.common.catalogos.*;
-import mx.grupocorasa.sat.common.catalogos.Pagos.CTipoCadenaPago;
+import com.angelsoft.sat.common.Pagos10.ObjectFactory;
+import com.angelsoft.sat.common.Pagos10.Pagos;
+import com.angelsoft.sat.common.catalogos.*;
+import com.angelsoft.sat.common.catalogos.Pagos.CTipoCadenaPago;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

@@ -1,9 +1,9 @@
-package mx.grupocorasa.sat.factory.cfd;
+package com.angelsoft.sat.factory.cfd;
 
-import mx.grupocorasa.sat.cfd._30.Comprobante;
-import mx.grupocorasa.sat.cfd._30.ObjectFactory;
-import mx.grupocorasa.sat.cfd._30.TUbicacion;
-import mx.grupocorasa.sat.cfd._30.TUbicacionFiscal;
+import com.angelsoft.sat.cfd._30.Comprobante;
+import com.angelsoft.sat.cfd._30.ObjectFactory;
+import com.angelsoft.sat.cfd._30.TUbicacion;
+import com.angelsoft.sat.cfd._30.TUbicacionFiscal;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

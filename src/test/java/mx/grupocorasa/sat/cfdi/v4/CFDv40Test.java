@@ -1,14 +1,14 @@
-package mx.grupocorasa.sat.cfdi.v4;
+package com.angelsoft.sat.cfdi.v4;
 
-import mx.grupocorasa.sat.cfd._40.Comprobante;
-import mx.grupocorasa.sat.common.Pagos20.Pagos;
-import mx.grupocorasa.sat.common.TimbreFiscalDigital11.TimbreFiscalDigital;
-import mx.grupocorasa.sat.common.ValidationErrorHandler;
-import mx.grupocorasa.sat.factory.cfd.ExampleCFDv40Factory;
-import mx.grupocorasa.sat.factory.common.ExampleComplementoPago20Factory;
-import mx.grupocorasa.sat.factory.common.ExampleTimbreFiscal11Factory;
-import mx.grupocorasa.sat.security.KeyLoaderEnumeration;
-import mx.grupocorasa.sat.security.factory.KeyLoaderFactory;
+import com.angelsoft.sat.cfd._40.Comprobante;
+import com.angelsoft.sat.common.Pagos20.Pagos;
+import com.angelsoft.sat.common.TimbreFiscalDigital11.TimbreFiscalDigital;
+import com.angelsoft.sat.common.ValidationErrorHandler;
+import com.angelsoft.sat.factory.cfd.ExampleCFDv40Factory;
+import com.angelsoft.sat.factory.common.ExampleComplementoPago20Factory;
+import com.angelsoft.sat.factory.common.ExampleTimbreFiscal11Factory;
+import com.angelsoft.sat.security.KeyLoaderEnumeration;
+import com.angelsoft.sat.security.factory.KeyLoaderFactory;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;

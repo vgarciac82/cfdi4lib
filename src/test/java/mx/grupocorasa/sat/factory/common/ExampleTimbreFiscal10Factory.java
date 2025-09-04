@@ -1,7 +1,7 @@
-package mx.grupocorasa.sat.factory.common;
+package com.angelsoft.sat.factory.common;
 
-import mx.grupocorasa.sat.common.TimbreFiscalDigital10.ObjectFactory;
-import mx.grupocorasa.sat.common.TimbreFiscalDigital10.TimbreFiscalDigital;
+import com.angelsoft.sat.common.TimbreFiscalDigital10.ObjectFactory;
+import com.angelsoft.sat.common.TimbreFiscalDigital10.TimbreFiscalDigital;
 
 import java.time.LocalDateTime;
 

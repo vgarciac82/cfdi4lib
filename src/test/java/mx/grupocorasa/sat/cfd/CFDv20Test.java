@@ -1,12 +1,12 @@
-package mx.grupocorasa.sat.cfd;
+package com.angelsoft.sat.cfd;
 
-import mx.grupocorasa.sat.cfd._20.Comprobante;
-import mx.grupocorasa.sat.common.ValidationErrorHandler;
-import mx.grupocorasa.sat.common.donat10.Donatarias;
-import mx.grupocorasa.sat.factory.cfd.ExampleCFDv2Factory;
-import mx.grupocorasa.sat.factory.common.ExampleDonatFactory;
-import mx.grupocorasa.sat.security.KeyLoaderEnumeration;
-import mx.grupocorasa.sat.security.factory.KeyLoaderFactory;
+import com.angelsoft.sat.cfd._20.Comprobante;
+import com.angelsoft.sat.common.ValidationErrorHandler;
+import com.angelsoft.sat.common.donat10.Donatarias;
+import com.angelsoft.sat.factory.cfd.ExampleCFDv2Factory;
+import com.angelsoft.sat.factory.common.ExampleDonatFactory;
+import com.angelsoft.sat.security.KeyLoaderEnumeration;
+import com.angelsoft.sat.security.factory.KeyLoaderFactory;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;

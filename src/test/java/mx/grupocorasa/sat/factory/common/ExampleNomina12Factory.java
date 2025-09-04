@@ -1,9 +1,9 @@
-package mx.grupocorasa.sat.factory.common;
+package com.angelsoft.sat.factory.common;
 
-import mx.grupocorasa.sat.common.catalogos.CEstado;
-import mx.grupocorasa.sat.common.catalogos.Nomina.*;
-import mx.grupocorasa.sat.common.nomina12.Nomina;
-import mx.grupocorasa.sat.common.nomina12.ObjectFactory;
+import com.angelsoft.sat.common.catalogos.CEstado;
+import com.angelsoft.sat.common.catalogos.Nomina.*;
+import com.angelsoft.sat.common.nomina12.Nomina;
+import com.angelsoft.sat.common.nomina12.ObjectFactory;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

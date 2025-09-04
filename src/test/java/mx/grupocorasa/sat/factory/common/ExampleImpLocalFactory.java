@@ -1,7 +1,7 @@
-package mx.grupocorasa.sat.factory.common;
+package com.angelsoft.sat.factory.common;
 
-import mx.grupocorasa.sat.common.implocal10.ImpuestosLocales;
-import mx.grupocorasa.sat.common.implocal10.ObjectFactory;
+import com.angelsoft.sat.common.implocal10.ImpuestosLocales;
+import com.angelsoft.sat.common.implocal10.ObjectFactory;
 
 import java.math.BigDecimal;
 
