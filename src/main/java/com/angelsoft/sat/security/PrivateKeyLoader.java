@@ -1,7 +1,5 @@
 package com.angelsoft.sat.security;
 
-
-import com.google.common.io.ByteStreams;
 import com.angelsoft.sat.exceptions.KeyException;
 import org.apache.commons.ssl.PKCS8Key;
 
@@ -32,13 +30,13 @@ public class PrivateKeyLoader implements KeyLoader {
     }
 
     public void setPrivateKey(String privateKeyLocation, String keyPassword) {
-        InputStream privateKeyInputStream;
-        try {
-            privateKeyInputStream = new FileInputStream(privateKeyLocation);
+        try (InputStream privateKeyInputStream = new FileInputStream(privateKeyLocation)) {
+            this.setPrivateKey(privateKeyInputStream, keyPassword);
         } catch (FileNotFoundException fnfe) {
-            throw new KeyException("La ubicación del archivo de la llave privada es incorrecta", fnfe.getCause());
+            throw new KeyException("La ubicación del archivo de la llave privada es incorrecta", fnfe);
+        } catch (IOException ioe) {
+            throw new KeyException("No se pudo leer la llave privada", ioe);
         }
-        this.setPrivateKey(privateKeyInputStream, keyPassword);
     }
 
     public void setPrivateKey(InputStream privateKeyInputStream, String keyPassword) {
@@ -48,25 +46,24 @@ public class PrivateKeyLoader implements KeyLoader {
             this.key = KeyFactory.getInstance("RSA").generatePrivate(pkcs8EncodedKeySpec);
         } catch (GeneralSecurityException gse) {
             throw new KeyException(
-                    "Error al obtener la información del certificado debido a su codificación",
-                    gse.getCause());
+                "Error al obtener la información del certificado debido a su codificación",
+                gse
+            );
         }
     }
 
     private byte[] extractProtectedPrivateKey(InputStream privateKeyInputStream, String keyPassword) {
-        byte[] bytes;
         try {
-            if (keyPassword == null) {
-                bytes = ByteStreams.toByteArray(privateKeyInputStream);
+            if (keyPassword == null || keyPassword.isEmpty()) {
+                // Java 9+: sin Guava
+                return privateKeyInputStream.readAllBytes();
             } else {
-                bytes = new PKCS8Key(privateKeyInputStream, keyPassword.toCharArray()).getDecryptedBytes();
+                return new PKCS8Key(privateKeyInputStream, keyPassword.toCharArray()).getDecryptedBytes();
             }
         } catch (GeneralSecurityException e) {
-            throw new KeyException("La contraseña del certificado no es correcta", e.getCause());
+            throw new KeyException("La contraseña del certificado no es correcta", e);
         } catch (IOException ioe) {
-            throw new KeyException(ioe.getMessage(), ioe.getCause());
+            throw new KeyException("No se pudo leer la llave privada", ioe);
         }
-        return bytes;
     }
-
 }

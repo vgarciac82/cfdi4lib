@@ -1,0 +1,18 @@
+<jaxb:bindings version="3.0"
+    xmlns:jaxb="https://jakarta.ee/xml/ns/jaxb"
+    xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <jaxb:bindings>
+        <jaxb:globalBindings typesafeEnumMaxMembers="100000" typesafeEnumMemberName="generateName">
+            <xjc:javaType name="java.time.LocalDateTime" xmlType="xs:dateTime" adapter="com.angelsoft.sat.util.DateTimeAdapter"/>
+            <xjc:javaType name="java.time.LocalDate" xmlType="xs:date" adapter="com.angelsoft.sat.util.DateAdapter"/>
+        </jaxb:globalBindings>
+    </jaxb:bindings>
+	<jaxb:bindings>
+        <jaxb:bindings schemaLocation="../xsd/common/nomina/nomina11.xsd" node="/xs:schema">
+            <jaxb:schemaBindings>
+                <jaxb:package name="com.angelsoft.sat.common.nomina11"/>
+            </jaxb:schemaBindings>
+        </jaxb:bindings>
+    </jaxb:bindings>
+</jaxb:bindings>

@@ -172,7 +172,9 @@ public final class CFDv40 extends CFDv4 {
             contexts.addAll(Arrays.asList(addendas));
         contexts.add(0, BASE_CONTEXT);
         if (!contextMap.containsKey(contexts)) {
-            JAXBContext context = JAXBContext.newInstance(JOINER.join(contexts));
+
+            JAXBContext context = JAXBContext.newInstance(String.join(":", contexts));
+
             contextMap.put(contexts, context);
         }
         return contextMap.get(contexts);

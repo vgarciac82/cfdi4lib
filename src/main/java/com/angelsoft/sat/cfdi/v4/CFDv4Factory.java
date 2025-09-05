@@ -1,6 +1,5 @@
 package com.angelsoft.sat.cfdi.v4;
 
-import com.google.common.io.ByteStreams;
 import com.angelsoft.sat.common.CFDFactory;
 import com.angelsoft.sat.exceptions.UnsupportedVersionException;
 
@@ -19,18 +18,14 @@ public final class CFDv4Factory extends CFDFactory {
     }
 
     private static CFDv4 getCFDI4(InputStream in) throws Exception {
-        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-            ByteStreams.copy(in, baos);
-            byte[] data = baos.toByteArray();
-            switch (getVersion(data)) {
-                case "4.0":
-                    try (ByteArrayInputStream bais = new ByteArrayInputStream(data)) {
-                        return new CFDv40(bais);
-                    }
-                default:
-                    throw new UnsupportedVersionException("La versión " + getVersion(data) + " no es soportada en esta librería");
-            }
+        byte[] data = in.readAllBytes();
+        switch (getVersion(data)) {
+            case "4.0":
+                try (ByteArrayInputStream bais = new ByteArrayInputStream(data)) {
+                    return new CFDv40(bais);
+                }
+            default:
+                throw new UnsupportedVersionException("La versión " + getVersion(data) + " no es soportada en esta librería");
         }
     }
-
 }

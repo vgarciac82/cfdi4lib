@@ -1,160 +1,194 @@
 plugins {
-    id 'java'
-    id "de.undercouch.download" version "4.0.4"
-    id "com.github.edeandrea.xjc-generation" version "1.6"
-    id "maven-publish"
-    id "co.uzzu.dotenv.gradle" version "1.2.0"
+    id 'java-library'
+    id 'com.github.edeandrea.xjc-generation' version '1.6'
 }
 
-apply from: 'download.gradle'
-
-group 'mx.grupocorasa.cfdibase'
-version '4.0.18'
-
-publishing {
-    repositories {
-        maven {
-            name = "cfdi-base"
-            url = uri("https://maven.pkg.github.com/grupocorasa/cfdi-base")
-            credentials {
-                username = env.USERNAME.value
-                password = env.GP_TOKEN.value
-            }
-            }
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
     }
-    publications {
-        gpr(MavenPublication) {
-            from(components.java)
-        }
-    }
-}
-
-tasks.withType(JavaCompile) {
-    options.encoding = 'UTF-8'
-}
-
-ext {
-    jaxbVersion = '4.0.3'
-}
-
-//***DO NOT EDIT*** FROM HERE
-//START OF XJC-GEN
-xjcGeneration {
-	defaultAdditionalXjcOptions = ['encoding': 'UTF-8']
-	schemas{
-		 
-	 
-		com_angelsoft_sat_common_ecb10{
-			bindingFile = 'src/main/resources/bindingFiles/ecb_bind.xml'
-			schemaRootDir = 'src/main/resources'
-			schemaFile = 'xsd/common/ecb/ecb.xsd'
-		} 
-		com_angelsoft_sat_common_implocal10{
-			bindingFile = 'src/main/resources/bindingFiles/implocal_bind.xml'
-			schemaRootDir = 'src/main/resources'
-			schemaFile = 'xsd/common/implocal/implocal.xsd'
-		}  
-		com_angelsoft_sat_common_TimbreFiscalDigital10{
-			bindingFile = 'src/main/resources/bindingFiles/TimbreFiscalDigital_bind.xml'
-			schemaRootDir = 'src/main/resources'
-			schemaFile = 'xsd/common/TimbreFiscalDigital/TimbreFiscalDigital.xsd'
-		}
-		com_angelsoft_sat_common_donat11{
-			bindingFile = 'src/main/resources/bindingFiles/donat11_bind.xml'
-			schemaRootDir = 'src/main/resources'
-			schemaFile = 'xsd/common/donat/donat11.xsd'
-		}   
-		com_angelsoft_sat_common_nomina12{
-			bindingFile = 'src/main/resources/bindingFiles/nomina12_bind.xml'
-			schemaRootDir = 'src/main/resources'
-			schemaFile = 'xsd/common/nomina/nomina12.xsd'
-		}
-		com_angelsoft_sat_common_catalogos{
-			bindingFile = 'src/main/resources/bindingFiles/catCFDI_bind.xml'
-			schemaRootDir = 'src/main/resources'
-			schemaFile = 'xsd/common/catalogos/catCFDI.xsd'
-		} 
-		com_angelsoft_sat_common_catalogos_Nomina{
-			bindingFile = 'src/main/resources/bindingFiles/catNomina_bind.xml'
-			schemaRootDir = 'src/main/resources'
-			schemaFile = 'xsd/common/catalogos/Nomina/catNomina.xsd'
-		}
-		com_angelsoft_sat_common_cfdiregistrofiscal10{
-			bindingFile = 'src/main/resources/bindingFiles/cfdiregistrofiscal_bind.xml'
-			schemaRootDir = 'src/main/resources'
-			schemaFile = 'xsd/common/cfdiregistrofiscal/cfdiregistrofiscal.xsd'
-		}       
-		com_angelsoft_sat_common_catalogos_Pagos{
-			bindingFile = 'src/main/resources/bindingFiles/catPagos_bind.xml'
-			schemaRootDir = 'src/main/resources'
-			schemaFile = 'xsd/common/catalogos/Pagos/catPagos.xsd'
-		}
-		com_angelsoft_sat_common_EstadoDeCuentaCombustible12{
-			bindingFile = 'src/main/resources/bindingFiles/ecc12_bind.xml'
-			schemaRootDir = 'src/main/resources'
-			schemaFile = 'xsd/common/EstadoDeCuentaCombustible/ecc12.xsd'
-		}
-		com_angelsoft_sat_common_catalogos_Combustible{
-			bindingFile = 'src/main/resources/bindingFiles/catCombustible_bind.xml'
-			schemaRootDir = 'src/main/resources'
-			schemaFile = 'xsd/common/catalogos/Combustible/catCombustible.xsd'
-		}
-		com_angelsoft_sat_common_consumodecombustibles11{
-			bindingFile = 'src/main/resources/bindingFiles/consumodeCombustibles11_bind.xml'
-			schemaRootDir = 'src/main/resources'
-			schemaFile = 'xsd/common/consumodecombustibles/consumodeCombustibles11.xsd'
-		}  
-		com_angelsoft_sat_common_TimbreFiscalDigital11{
-			bindingFile = 'src/main/resources/bindingFiles/TimbreFiscalDigitalv11_bind.xml'
-			schemaRootDir = 'src/main/resources'
-			schemaFile = 'xsd/common/TimbreFiscalDigital/TimbreFiscalDigitalv11.xsd'
-		}  
-		com_angelsoft_sat_common_Pagos20{
-			bindingFile = 'src/main/resources/bindingFiles/Pagos20_bind.xml'
-			schemaRootDir = 'src/main/resources'
-			schemaFile = 'xsd/common/Pagos/Pagos20.xsd'
-		} 
-		com_angelsoft_sat_cfd_40{
-			bindingFile = 'src/main/resources/bindingFiles/cfdv40_bind.xml'
-			schemaRootDir = 'src/main/resources'
-			schemaFile = 'xsd/cfd/4/cfdv40.xsd'
-		} 
-		com_angelsoft_sat_common_nomina11{
-			bindingFile = 'src/main/resources/bindingFiles/nomina11_bind.xml'
-			schemaRootDir = 'src/main/resources'
-			schemaFile = 'xsd/common/nomina/nomina11.xsd'
-		}
-		 
-	}
-}
-//END OF XJC-GEN
-//***DO NOT EDIT*** TO HERE
-
-sourceSets {
-    main {
-        java {
-            srcDir "${buildDir.absolutePath}/generated-sources"
-        }
-    }
+    withSourcesJar()
+    withJavadocJar()
 }
 
 repositories {
     mavenCentral()
 }
 
+apply from: 'download.gradle'
+
+group = 'mx.grupocorasa.cfdibase'   // cámbialo cuando migres el groupId
+version = '4.0.18'
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+ext {
+    jaxbVersion = '4.0.5'
+}
+
+/* =======================
+ *  X J C   G E N E R A T I O N
+ * ======================= */
+//***DO NOT EDIT*** FROM HERE
+//START OF XJC-GEN
+xjcGeneration {
+    defaultAdditionalXjcOptions = ['encoding': 'UTF-8']
+    schemas{
+
+        com_angelsoft_sat_common_ecb10{
+            bindingFile = 'src/main/resources/bindingFiles/ecb_bind.xml'
+            schemaRootDir = 'src/main/resources'
+            schemaFile = 'xsd/common/ecb/ecb.xsd'
+        }
+        com_angelsoft_sat_common_implocal10{
+            bindingFile = 'src/main/resources/bindingFiles/implocal_bind.xml'
+            schemaRootDir = 'src/main/resources'
+            schemaFile = 'xsd/common/implocal/implocal.xsd'
+        }
+        com_angelsoft_sat_common_TimbreFiscalDigital10{
+            bindingFile = 'src/main/resources/bindingFiles/TimbreFiscalDigital_bind.xml'
+            schemaRootDir = 'src/main/resources'
+            schemaFile = 'xsd/common/TimbreFiscalDigital/TimbreFiscalDigital.xsd'
+        }
+        com_angelsoft_sat_common_donat11{
+            bindingFile = 'src/main/resources/bindingFiles/donat11_bind.xml'
+            schemaRootDir = 'src/main/resources'
+            schemaFile = 'xsd/common/donat/donat11.xsd'
+        }
+        com_angelsoft_sat_common_nomina12{
+            bindingFile = 'src/main/resources/bindingFiles/nomina12_bind.xml'
+            schemaRootDir = 'src/main/resources'
+            schemaFile = 'xsd/common/nomina/nomina12.xsd'
+        }
+        com_angelsoft_sat_common_catalogos{
+            bindingFile = 'src/main/resources/bindingFiles/catCFDI_bind.xml'
+            schemaRootDir = 'src/main/resources'
+            schemaFile = 'xsd/common/catalogos/catCFDI.xsd'
+        }
+        com_angelsoft_sat_common_catalogos_Nomina{
+            bindingFile = 'src/main/resources/bindingFiles/catNomina_bind.xml'
+            schemaRootDir = 'src/main/resources'
+            schemaFile = 'xsd/common/catalogos/Nomina/catNomina.xsd'
+        }
+        com_angelsoft_sat_common_cfdiregistrofiscal10{
+            bindingFile = 'src/main/resources/bindingFiles/cfdiregistrofiscal_bind.xml'
+            schemaRootDir = 'src/main/resources'
+            schemaFile = 'xsd/common/cfdiregistrofiscal/cfdiregistrofiscal.xsd'
+        }
+        com_angelsoft_sat_common_catalogos_Pagos{
+            bindingFile = 'src/main/resources/bindingFiles/catPagos_bind.xml'
+            schemaRootDir = 'src/main/resources'
+            schemaFile = 'xsd/common/catalogos/Pagos/catPagos.xsd'
+        }
+        com_angelsoft_sat_common_EstadoDeCuentaCombustible12{
+            bindingFile = 'src/main/resources/bindingFiles/ecc12_bind.xml'
+            schemaRootDir = 'src/main/resources'
+            schemaFile = 'xsd/common/EstadoDeCuentaCombustible/ecc12.xsd'
+        }
+        com_angelsoft_sat_common_catalogos_Combustible{
+            bindingFile = 'src/main/resources/bindingFiles/catCombustible_bind.xml'
+            schemaRootDir = 'src/main/resources'
+            schemaFile = 'xsd/common/catalogos/Combustible/catCombustible.xsd'
+        }
+        com_angelsoft_sat_common_consumodecombustibles11{
+            bindingFile = 'src/main/resources/bindingFiles/consumodeCombustibles11_bind.xml'
+            schemaRootDir = 'src/main/resources'
+            schemaFile = 'xsd/common/consumodecombustibles/consumodeCombustibles11.xsd'
+        }
+        com_angelsoft_sat_common_TimbreFiscalDigital11{
+            bindingFile = 'src/main/resources/bindingFiles/TimbreFiscalDigitalv11_bind.xml'
+            schemaRootDir = 'src/main/resources'
+            schemaFile = 'xsd/common/TimbreFiscalDigital/TimbreFiscalDigitalv11.xsd'
+        }
+        com_angelsoft_sat_common_Pagos20{
+            bindingFile = 'src/main/resources/bindingFiles/Pagos20_bind.xml'
+            schemaRootDir = 'src/main/resources'
+            schemaFile = 'xsd/common/Pagos/Pagos20.xsd'
+        }
+        com_angelsoft_sat_cfd_40{
+            bindingFile = 'src/main/resources/bindingFiles/cfdv40_bind.xml'
+            schemaRootDir = 'src/main/resources'
+            schemaFile = 'xsd/cfd/4/cfdv40.xsd'
+        }
+        com_angelsoft_sat_common_nomina11{
+            bindingFile = 'src/main/resources/bindingFiles/nomina11_bind.xml'
+            schemaRootDir = 'src/main/resources'
+            schemaFile = 'xsd/common/nomina/nomina11.xsd'
+        }
+
+    }
+}
+//END OF XJC-GEN
+//***DO NOT EDIT*** TO HERE
+
+/* =======================
+ *  E N C A D E N A M I E N T O   D E   T A R E A S
+ * ======================= */
+tasks.named("xjcGeneration") { dependsOn("satResources") }
+tasks.named("compileJava")   { dependsOn("xjcGeneration") }
+
+// para corregir el validation error: sourcesJar usa salidas de schemaGen_*
+tasks.named("sourcesJar") {
+    dependsOn("xjcGeneration")
+    from("$buildDir/generated-sources")
+    from("$buildDir/generated-sources/main/xjc")
+    from("$buildDir/generated/sources/xjc")
+}
+
+// javadoc también después de generar código
+tasks.named("javadoc") {
+    dependsOn("xjcGeneration")
+    source += fileTree("$buildDir/generated-sources")
+    source += fileTree("$buildDir/generated-sources/main/xjc")
+    source += fileTree("$buildDir/generated/sources/xjc")
+}
+tasks.named("javadocJar") { dependsOn("javadoc") }
+
+// evitar duplicados al empacar
+tasks.withType(Jar).configureEach {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+/* =======================
+ *  S O U R C E   S E T S
+ * ======================= */
+sourceSets {
+    main {
+        java {
+            setSrcDirs([
+                'src/main/java',
+                "${buildDir}/generated-sources",
+                "${buildDir}/generated-sources/main/xjc",
+                "${buildDir}/generated/sources/xjc"
+            ])
+        }
+        resources {
+            srcDirs = ['src/main/resources']
+        }
+    }
+}
+
+/* =======================
+ *  D E P E N D E N C I A S
+ * ======================= */
 dependencies {
-    testImplementation group: 'junit', name: 'junit', version: '4.12'
-    implementation 'com.google.guava:guava:31.0.1-jre'
-    implementation 'ca.juliusdavies:not-yet-commons-ssl:0.3.11'
-    implementation 'commons-io:commons-io:2.11.0'
-    implementation('jakarta.xml.bind:jakarta.xml.bind-api:2.3.3')
-    implementation('org.glassfish.jaxb:jaxb-runtime:2.3.6')
-    xjc "com.sun.xml.bind:jaxb-impl:$jaxbVersion"
-    implementation "com.sun.xml.bind:jaxb-impl:$jaxbVersion"
-    xjc "com.sun.xml.bind:jaxb-xjc:$jaxbVersion"
-    implementation "com.sun.xml.bind:jaxb-xjc:$jaxbVersion"
-    xjc "com.sun.xml.bind:jaxb-core:$jaxbVersion"
-    implementation "com.sun.xml.bind:jaxb-core:$jaxbVersion"
-    xjc 'javax.activation:activation:1.1.1'
-    implementation 'javax.activation:activation:1.1.1'
+    // Código propio (sin Guava/commons-io en esta versión)
+    implementation 'ca.juliusdavies:not-yet-commons-ssl:0.3.9'   // PKCS8Key (apache commons-ssl)
+
+    // JAXB Jakarta 4.x (compatible Java 17)
+    implementation "jakarta.xml.bind:jakarta.xml.bind-api:4.0.0"
+    implementation "org.glassfish.jaxb:jaxb-runtime:${jaxbVersion}"
+    implementation "org.glassfish.jaxb:jaxb-core:${jaxbVersion}"
+    implementation "jakarta.activation:jakarta.activation-api:2.1.2"
+
+    // Herramientas XJC (classpath de la tarea de generación)
+    xjc "jakarta.xml.bind:jakarta.xml.bind-api:4.0.0"
+    xjc "org.glassfish.jaxb:jaxb-runtime:${jaxbVersion}"
+    xjc "org.glassfish.jaxb:jaxb-core:${jaxbVersion}"
+    xjc "org.glassfish.jaxb:jaxb-xjc:${jaxbVersion}"
+    xjc "jakarta.activation:jakarta.activation-api:2.1.2"
+
+    testImplementation 'junit:junit:4.13.2'
 }
